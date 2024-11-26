@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <menu>
+        {% block menu %}
+        <h1>{{ page_name }}</h1>
+        <a href="/">{{ menu.0 }}</a><br>
+        <a href="/second/">{{ menu.1 }}</a><br>
+        <a href="/third/">{{ menu.2 }}</a>
+        {% endblock %}
+    </menu>
+    <pagename>
+        {% block pagename %}
+
+        {% endblock %}
+    </pagename> <br>
+    <content>
+        {% block content %}
+
+        {% endblock %}
+    </content>
+
+
+</body>
+</html>

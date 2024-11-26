@@ -1,0 +1,25 @@
+{% extends "menu.html" %}
+{% load static %}
+
+{% block menu %}
+    {{ block.super }}
+{% endblock %}
+
+{% block pagename %}
+    {{ page_name }}
+{% endblock %}
+
+
+{% block content %}
+    <ul>
+        {% for i in content %}
+            {% if i.title == 'Killing floor 3' %}
+                <li>{{ i.title }}| описание: <br>{{ i.description }}<br>
+                    Цена: {{ i.cost }}<button>Coming soon</button></li><br><br>
+            {% else %}
+                <li>{{ i.title }}| описание: <br>{{ i.description }}<br>
+                    Цена: {{ i.cost }}<button>Купить</button></li><br><br>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

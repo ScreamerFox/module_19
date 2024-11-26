@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Что то</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% for buyer in buyers %}
+        <r>{{buyer.name}} Ваш баланс - {{ buyer.balance }}<br></r>
+    {% endfor %}
+<br>
+<br>
+    {% for game in games %}
+        <r>Игра - {{game.title}} описание:<br> {{ game.description }}<br><br></r>
+    {% endfor %}
+</body>
+</html>
