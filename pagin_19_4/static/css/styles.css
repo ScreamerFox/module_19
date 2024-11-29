@@ -1,0 +1,49 @@
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+
+.news-container {
+    text-align: center;
+    padding-right: 25%;
+    padding-left: 25%;
+}
+
+.news-item {
+    background-color: #95fdae;
+    color: #201460;
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #f38f8f;
+    border-radius: 5px;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.page-link:hover {
+    background-color: #45a049;
+}
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;  /* Расстояние от верха страницы */
+}
