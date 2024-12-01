@@ -1,0 +1,18 @@
+тестировал следующие команды:
+
+from podstogram.models import *
+
+s = Promotion.objects.all()
+for i in s:                 
+  print(i.name_prom, i.price)
+
+
+Promotion.objects.exclude(price__gt='50') # объекты стоимостью больше 500
+
+a = Promotion.objects.order_by('-price') # сортировка по убыванию цены
+for i in a:
+  print(i.name_prom, i.price)
+
+d = Promotion.objects.aggregate(max_price=Max('price'))
+max_price = d['max_price']
+print(f"Максимальная цена: {max_price}")
