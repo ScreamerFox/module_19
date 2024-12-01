@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>News-world</title>
+    <h1>Добро пожаловать в новостной портал!<br><font color="light-blue">Podstogram</font></h1>
+
+
+</head>
+<body>
+
+<div class="news-container">
+    {% for new in page_obj %}
+    <div class="news-item">
+        <h2>{{ new.title }}</h2>
+        <p>{{ new.content }}</p>
+        <p>{{ new.created_at }}</p>
+    </div>
+    {% endfor %}
+    </div>
+
+
+<div class="pagination-wrapper">
+    {% if page_obj.has_other_pages %}
+    {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}&posts_per_page={{ posts_per_page }}" aria-label="предыдущая">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    {% else %}
+        <a class="page-link" href="#" aria-label="предыдущая">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    {% endif %}
+    {% for i in page_obj.paginator.page_range %}
+        {% if page_obj.number == i %}
+                <a class="page-link" href="#">{{ i }}</a>
+        {% else %}
+                <a class="page-link" href="?page={{ i }}&posts_per_page={{ posts_per_page }}">{{ i }}</a>
+        {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}&posts_per_page={{ posts_per_page }}" aria-label="следующая">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    {% else %}
+        <a class="page-link" href="#" aria-label="следующая">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    {% endif %}
+{% endif %}
+</div>
+
+
+<div class="center-form">
+    <form method="get">
+        <label for="posts_per_page">Постов на странице:</label>
+        <select id="posts_per_page" name="posts_per_page" onchange="this.form.submit()">
+            <option value="true" hidden="hidden">{{ posts_per_page }}</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+        </select>
+    </form>
+</div>
+
+
+</body>
+</html>
